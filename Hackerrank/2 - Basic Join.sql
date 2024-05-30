@@ -22,3 +22,8 @@ FROM COUNTRY AS country                                 -- The FLOOR() function 
 JOIN CITY AS city ON country.Code = city.CountryCode
 GROUP BY country.CONTINENT;
 
+-- The Report
+SELECT IF(Grades.grade >= 8,Students.Name, NULL ), Grades.grade, Students.Marks
+FROM Grades
+JOIN Students ON (Students.Marks >= Grades.Min_Mark AND Students.Marks <= Grades.Max_Mark)
+ORDER BY Grades.grade DESC, Students.Name ASC;
